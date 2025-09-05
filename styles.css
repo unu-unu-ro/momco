@@ -83,8 +83,14 @@ body {
   color: var(--brand);
   font-family: var(--font-serif);
 }
-.title.highlight, .motto.highlight { position: relative; display: inline-block; z-index: 0; }
-.title.highlight::after, .motto.highlight::after {
+.title.highlight,
+.motto.highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+.title.highlight::after,
+.motto.highlight::after {
   content: "";
   position: absolute;
   left: -6px;
@@ -94,12 +100,26 @@ body {
   background: var(--lemon);
   z-index: -1;
 }
-.logo-badge { display: inline-flex; align-items: center; justify-content: center; }
-.logo-img { width: 40px; height: 40px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.15); object-fit: contain; }
+/* Motto uses aqua band instead of lemon */
+.motto.highlight::after {
+  background: var(--aqua);
+}
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  object-fit: contain;
+}
 .motto {
   margin: 0 auto;
   max-width: 36ch;
-  color: var(--aqua);
+  color: var(--black);
   font-size: 18px;
   line-height: 1.35;
 }

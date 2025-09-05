@@ -14,7 +14,7 @@
     title: document.getElementById("dayTitle"),
     prayer: document.getElementById("dayPrayer"),
     verse: document.getElementById("dayVerse"),
-  continueBtn: document.getElementById("continueBtn"),
+    continueBtn: document.getElementById("continueBtn"),
     shareLink: document.getElementById("shareLink"),
   };
 
@@ -154,7 +154,7 @@
       if (state.curenta < state.total) next();
       else goTo(1);
     });
-  // progresul se salvează automat la navigare prin goTo()
+    // progresul se salvează automat la navigare prin goTo()
     // Keyboard left/right for accessibility
     window.addEventListener("keydown", (e) => {
       if (e.key === "ArrowRight") next();
