@@ -7,6 +7,7 @@
   };
 
   const el = {
+    header: document.querySelector(".app-header"),
     scroller: document.getElementById("dayScroller"),
     prev: document.getElementById("prevBtn"),
     next: document.getElementById("nextBtn"),
@@ -14,7 +15,8 @@
     title: document.getElementById("dayTitle"),
     prayer: document.getElementById("dayPrayer"),
     verse: document.getElementById("dayVerse"),
-    continueBtn: document.getElementById("continueBtn"),
+    sectionCard: document.getElementById("sectionCard"),
+    daySection: document.getElementById("daySection"),
     shareLink: document.getElementById("shareLink"),
   };
 
@@ -75,6 +77,17 @@
     el.prayer.textContent = item.rugaciunea || item.rugaciune || "";
     el.verse.textContent = item.versetul || item.verset || "";
 
+    // Optional section
+    const sect =
+      item.sectiunea || item.sectiune || item.section || item.nota || "";
+    if (sect && String(sect).trim().length > 0) {
+      el.daySection.textContent = sect;
+      el.sectionCard.hidden = false;
+    } else {
+      el.sectionCard.hidden = true;
+      el.daySection.textContent = "";
+    }
+
     // Update chips state
     const chips = el.scroller.querySelectorAll(".chip");
     chips.forEach((c, i) => {
@@ -97,17 +110,18 @@
     setQS(idx);
     el.shareLink.onclick = async (e) => {
       e.preventDefault();
+      const shareData = { title: document.title, url: location.href };
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          toast("Partajat");
+        } catch {}
+        return;
+      }
       try {
         await navigator.clipboard.writeText(location.href);
         toast("Link copiat");
-      } catch {
-        // fallback: open system share if possible
-        if (navigator.share) {
-          navigator
-            .share({ title: document.title, url: location.href })
-            .catch(() => {});
-        }
-      }
+      } catch {}
     };
   }
 
@@ -150,9 +164,13 @@
   function initEvents() {
     el.next.addEventListener("click", next);
     el.prev.addEventListener("click", prev);
-    el.continueBtn.addEventListener("click", () => {
-      if (state.curenta < state.total) next();
-      else goTo(1);
+    // Click/tap header to jump to Day 1
+    el.header.addEventListener("click", () => goTo(1));
+    el.header.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        goTo(1);
+      }
     });
     // progresul se salvează automat la navigare prin goTo()
     // Keyboard left/right for accessibility

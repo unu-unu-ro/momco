@@ -22,6 +22,7 @@
   --space: 16px;
   --space-sm: 10px;
   --space-lg: 24px;
+  --footer-h: 150px;
 
   /* Typography */
   --font-sans: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui,
@@ -47,8 +48,15 @@ body {
 }
 
 .app-header {
-  padding: 20px var(--space);
+  padding: 28px var(--space);
   text-align: center;
+}
+.app-header {
+  cursor: pointer;
+}
+.app-header:focus {
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
 }
 .title-row {
   display: inline-grid;
@@ -122,6 +130,7 @@ body {
   color: var(--black);
   font-size: 18px;
   line-height: 1.35;
+  margin-top: 6px;
 }
 .motto .ref {
   display: block;
@@ -135,14 +144,14 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: var(--space);
-  padding: 0 var(--space);
+  padding: 0 var(--space) calc(var(--footer-h) + var(--space));
 }
 
 .day-nav {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 .nav-btn {
   height: 36px;
@@ -169,9 +178,10 @@ body {
 
 .day-scroller {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   overflow-x: auto;
-  padding: 6px;
+  padding: 10px;
+  margin: 2px 0 8px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
@@ -202,6 +212,26 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: var(--space-lg);
+}
+.info-card {
+  border: none;
+  background: var(--card-bg);
+  position: relative;
+}
+.info-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(3, 255, 252, 0.35);
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+.info-card .section-title {
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 .card-head {
   margin-bottom: var(--space);
@@ -249,9 +279,17 @@ blockquote {
 }
 
 .app-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: grid;
   gap: 8px;
-  padding: 6px 0 20px;
+  padding: 12px var(--space) 16px;
+  background: var(--card-bg);
+  border-top: 3px solid var(--aqua);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
 }
 .primary {
   appearance: none;
@@ -262,6 +300,32 @@ blockquote {
   background: var(--black);
   color: var(--lemon);
   box-shadow: var(--shadow);
+}
+.primary.share-cta {
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 14px 18px;
+  background: #ed6847; /* requested color */
+  color: #ffffff; /* white text */
+  text-decoration: none; /* remove underline */
+  border-radius: 999px; /* pill shape like the reference */
+  cursor: pointer;
+}
+.primary.share-cta:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+.primary.share-cta:hover {
+  text-decoration: none;
+  filter: brightness(0.98);
+}
+.primary.share-cta:focus {
+  text-decoration: none;
+}
+.primary.share-cta:active {
+  transform: translateY(1px);
 }
 .primary:active {
   transform: translateY(1px);
@@ -292,6 +356,29 @@ blockquote {
   color: var(--muted);
   font-size: 13px;
   text-decoration: underline;
+}
+
+.action-bar {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0 6px;
+}
+
+.footer-motto {
+  margin-top: 8px;
+  text-align: center;
+  color: var(--muted);
+}
+.footer-motto .footer-quote {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.footer-motto .ref {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--brand);
 }
 
 /* Small improvements for larger phones */

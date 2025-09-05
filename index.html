@@ -26,9 +26,27 @@
     <link rel="icon" type="image/png" href="./logo.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="./logo.png" />
     <link rel="shortcut icon" href="./logo.png" />
+
+    <!-- Social: Open Graph / Twitter Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MOMCO UNU-UNU • momco" />
+    <meta
+      property="og:description"
+      content="Devotional de 31 de zile pentru mame: Har pentru haos – momco"
+    />
+    <meta property="og:image" content="./thumb.png" />
+    <meta property="og:locale" content="ro_RO" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MOMCO UNU-UNU • momco" />
+    <meta
+      name="twitter:description"
+      content="Devotional de 31 de zile pentru mame: Har pentru haos – momco"
+    />
+    <meta name="twitter:image" content="./thumb.png" />
+    <link rel="image_src" href="./thumb.png" />
   </head>
   <body>
-    <header class="app-header">
+    <header class="app-header" tabindex="0" title="Mergi la Ziua 1">
       <div class="title-row">
         <h1 class="title highlight">MOMCO UNU-UNU</h1>
         <img
@@ -70,6 +88,12 @@
         </button>
       </nav>
 
+      <!-- Optional per-day section from JSON: `sectiune` -->
+      <section class="card info-card" id="sectionCard" hidden>
+        <h3 class="section-title">Secțiune</h3>
+        <p class="section-text" id="daySection"></p>
+      </section>
+
       <article class="card" id="dayCard" aria-live="polite">
         <header class="card-head">
           <div class="eyebrow" id="eyebrow">Ziua 1 din 31</div>
@@ -85,11 +109,21 @@
         </section>
       </article>
 
+      <!-- Actions: Share (primary) -->
+      <div class="action-bar">
+        <a class="primary share-cta" id="shareLink" href="#" role="button"
+          >Trimite unei mame mesajul de azi
+        </a>
+      </div>
+
       <footer class="app-footer">
-        <button class="primary" id="continueBtn">Continuă</button>
-        <a class="muted-link" id="shareLink" href="#"
-          >Copiază link către ziua curentă</a
-        >
+        <div class="footer-motto" aria-label="Motto">
+          <p class="footer-quote">
+            „Varsă-ți inima ca niște apă înaintea Domnului! Ridică-ți mâinile
+            spre El pentru viața copiilor tăi.”
+          </p>
+          <span class="ref">Plângerile lui Ieremia 2:19B</span>
+        </div>
       </footer>
     </main>
 
