@@ -1,44 +1,20 @@
-# HAR PENTRU HAOS — momco (SPA)
+# MOMCO UNU-UNU — Har pentru haos
 
-Single-page app mobilă pentru parcurgerea devoționalului de 31 de zile folosind conținutul din `continut.json`.
+Bine ai venit! Acesta este un devoțional de 31 de zile, creat pentru mame care își doresc să-L caute pe Dumnezeu în mijlocul aglomerației zilnice. Câte o zi, câte un pas — cu har, nu cu presiune.
 
-## Cum rulezi local
+Ce găsești aici
 
-Orice server static funcționează. Pe Windows (PowerShell):
+- 31 de zile cu un titlu scurt, o rugăciune simplă și un verset pe care îl poți medita în ritmul tău.
+- O experiență gândită pentru telefon: clară, aerisită, ușor de parcurs oriunde te afli.
+- „Continuă” te duce la ziua următoare și aplicația ține minte unde ai rămas data viitoare când revii.
 
-```powershell
-# Opțiunea 1: Python 3 (dacă e instalat)
-python -m http.server 8080
+Cum folosești
 
-# Opțiunea 2: Node.js (dacă e instalat)
-# npm i -g serve
-serve -l 8080
-```
+- Deschide pagina pe telefonul tău și alege ziua din listă sau apasă „Continuă”.
+- Poți distribui o zi anume folosind linkul „Copiază link către ziua curentă”.
 
-Apoi deschide în browser:
+De ce „Har pentru haos”
 
-- http://localhost:8080/index.html (sau calea corespunzătoare)
+- Pentru că Dumnezeu este prezent chiar și în zilele cu rufe, vase și to-do-uri fără capăt. Vrem să-ți fie ușor să-ți ridici privirea spre El — măcar pentru câteva minute pe zi.
 
-## Caracteristici
-
-- Design curat, modern, în stil momco, mobile-first
-- Navigare rapidă între zile (chips + butoane ◄ ►)
-- Păstrează progresul (LocalStorage)
-- Deep link la zi: parametru `?zi=7`
-- Copiere link zi curentă
-
-## Structură
-
-- `index.html` – shell-ul aplicației
-- `styles.css` – stilurile mobile-first
-- `app.js` – logica SPA (încărcare și randare conținut)
-- `continut.json` – datele (31 de zile)
-
-## Personalizare rapidă
-
-- Culori: în `styles.css` la `:root`
-- Titlu/Motto: în `index.html` header
-
-## Note
-
-Dacă deschizi fișierele direct cu file://, unele browsere blochează `fetch` din fișier. Rulează printr-un server static (vezi mai sus).
+Mulțumim că ești aici. Ne rugăm ca aceste 31 de zile să-ți aducă pace, speranță și un suflu nou pentru inima ta și pentru casa ta.
