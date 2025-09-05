@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="theme-color" content="#000000" />
+  <title>MOMCO UNU-UNU • momco</title>
+    <meta
+      name="description"
+      content="Devotional de 31 de zile pentru mame: Har pentru Haos – momco"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Young Serif via Google Fonts; Helvetica Neue & PP Editorial New referenced via fallbacks/self-host if licensed -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <!-- System fonts for fast mobile render -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="title-row">
+        <h1 class="title highlight">MOMCO UNU-UNU</h1>
+        <img class="logo-img" src="./logo.png" alt="MOMCO" width="40" height="40" />
+      </div>
+  <p class="motto highlight">Har pentru haos</p>
+    </header>
+
+    <main class="content" id="app" role="main">
+      <nav class="day-nav" aria-label="Alege ziua">
+        <button
+          class="nav-btn"
+          id="prevBtn"
+          aria-label="Ziua anterioară"
+          title="Înapoi"
+        >
+          ◄
+        </button>
+        <div
+          class="day-scroller"
+          id="dayScroller"
+          role="tablist"
+          aria-label="Zilele 1–31"
+        >
+          <!-- Chips generate din JS -->
+        </div>
+        <button
+          class="nav-btn"
+          id="nextBtn"
+          aria-label="Ziua următoare"
+          title="Înainte"
+        >
+          ►
+        </button>
+      </nav>
+
+      <article class="card" id="dayCard" aria-live="polite">
+        <header class="card-head">
+          <div class="eyebrow" id="eyebrow">Ziua 1 din 31</div>
+          <h2 class="card-title" id="dayTitle">&nbsp;</h2>
+        </header>
+        <section class="card-section">
+          <h3 class="section-title">Rugăciune</h3>
+          <p class="section-text" id="dayPrayer">&nbsp;</p>
+        </section>
+        <section class="card-section verse">
+          <h3 class="section-title">Verset</h3>
+          <blockquote id="dayVerse"></blockquote>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <button class="primary" id="continueBtn">Continuă</button>
+        <a class="muted-link" id="shareLink" href="#"
+          >Copiază link către ziua curentă</a
+        >
+      </footer>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
